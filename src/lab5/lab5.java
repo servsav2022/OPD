@@ -40,19 +40,6 @@ public class lab5 {
             float kBm = in.nextFloat();
 
  // Расчет
-            //считаем время выполнения с заданными данными
-            for (int i = 0; i < mUiForm.length; i++){
-                mUiForm[i] *= kUi;
-            }
-            for (int i = 0; i < mAction.length; i++){
-                mAction[i] *= kAct;
-            }
-            for (int i = 0; i < mBObject.length; i++){
-                mBObject[i] *= kBo;
-            }
-            for (int i = 0; i < mBMethod.length; i++){
-                mBMethod[i] *= kBm;
-            }
 
             //cчитаем оценку средней трудоемкости кодирования (Еi = (Pi + 4Mi + Oi)/6)
             float eUi = (mUiForm[1] + (4 * mUiForm[2]) + mUiForm[0]) / 6f;
@@ -67,10 +54,10 @@ public class lab5 {
             float ckoBm = (mBMethod[1] - mBMethod[0]) / 6;
 
             //cчитаем суммарную трудоемкость проекта (Е = Sum Ei)
-            float e = eUi + eAct + eBo + eBm;
+            float e = kUi*eUi + kAct*eAct + kBo*eBo + kBm*eBm;
 
             //cчитаем среднеквадратичное отклонение для оценки суммарной трудоемкости кодирования
-            float cko = (float) Math.sqrt((ckoUi*ckoUi*20 + ckoAct*ckoAct*60 + ckoBo*ckoBo*16 + ckoBm*ckoBm*40));
+            float cko = (float) Math.sqrt((ckoUi*ckoUi*kUi + ckoAct*ckoAct*kAct + ckoBo*ckoBo*kBo + ckoBm*ckoBm*kBm));
 
             //cчитаем суммарную трудоемкости кодирования проекта (E95% = E + 2 * СКО)
             float e95 = e + 2 * cko;

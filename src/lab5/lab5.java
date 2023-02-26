@@ -38,9 +38,7 @@ public class lab5 {
             float kBo = in.nextFloat();
             System.out.print("Введите количество бизнес методов: ");
             float kBm = in.nextFloat();
-
  // Расчет
-
             //cчитаем оценку средней трудоемкости кодирования (Еi = (Pi + 4Mi + Oi)/6)
             float eUi = (mUiForm[1] + (4 * mUiForm[2]) + mUiForm[0]) / 6f;
             float eAct = (mAction[1] + (4 * mAction[2]) + mAction[0]) / 6f;
